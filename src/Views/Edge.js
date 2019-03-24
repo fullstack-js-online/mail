@@ -40,9 +40,9 @@ class EdgeRenderEngine extends BaseRenderEngine {
     const { html, text, watchHtml } = this._getContent(view)
 
     return {
-      html: html ? Edge.renderString(html, data): null,
-      text: text ? Edge.renderString(text, data): null,
-      watchHtml: watchHtml ? Edge.renderString(watchHtml, data): null
+      html: html ? Edge.renderString(html, data) : null,
+      text: text ? Edge.renderString(text, data) : null,
+      watchHtml: watchHtml ? Edge.renderString(watchHtml, data) : null
     }
   }
 }

@@ -1,3 +1,10 @@
+<a name="1.0.5"></a>
+# 1.0.5 (2019-03-24)
+
+### Features
+
+* Add cli helper to generate mail.
+
 <a name="1.0.4"></a>
 # 1.0.4 (2019-03-24)
 

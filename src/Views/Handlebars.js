@@ -42,7 +42,7 @@ class HandleBarsRenderEngine extends BaseRenderEngine {
     return {
       html: html ? HandleBars.compile(html)(data) : null,
       text: text ? HandleBars.compile(text)(data) : null,
-      watchHtml: watchHtml ? HandleBars.compile(watchHtml)(data): null
+      watchHtml: watchHtml ? HandleBars.compile(watchHtml)(data) : null
     }
   }
 }
