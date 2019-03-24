@@ -392,6 +392,7 @@ class Mail {
    */
   _setText(text) {
     this.mailerMessage.text = text
+
     return this
   }
 
@@ -406,6 +407,7 @@ class Mail {
    */
   _setHtml(html) {
     this.mailerMessage.html = html
+
     return this
   }
 
@@ -420,6 +422,7 @@ class Mail {
    */
   _setWatchHtml(html) {
     this.mailerMessage.watchHtml = html
+
     return this
   }
 
@@ -537,6 +540,7 @@ class Mail {
    */
   driverExtras(extras) {
     this.mailerMessage.extras = extras
+
     return this
   }
 
@@ -570,7 +574,7 @@ class Mail {
   async send() {
     const { html, text, watchHtml } = this.View.render(this.template, this.data)
 
-    if (hmtl) {
+    if (html) {
       this._setHtml(html)
     }
 
