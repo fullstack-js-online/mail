@@ -1,6 +1,6 @@
 {
   "name": "@fullstackjs/mail",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mail provider for elegantly sending emails in node js.",
   "main": "index.js",
   "scripts": {
