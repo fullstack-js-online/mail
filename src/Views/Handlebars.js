@@ -40,9 +40,9 @@ class HandleBarsRenderEngine extends BaseRenderEngine {
     const { html, text, watchHtml } = this._getContent(view)
 
     return {
-      html: HandleBars.compile(html)(data),
-      text: HandleBars.compile(text)(data),
-      watchHtml: HandleBars.compile(watchHtml)(data)
+      html: html ? HandleBars.compile(html)(data) : null,
+      text: text ? HandleBars.compile(text)(data) : null,
+      watchHtml: watchHtml ? HandleBars.compile(watchHtml)(data): null
     }
   }
 }

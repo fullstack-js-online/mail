@@ -1,3 +1,10 @@
+<a name="1.0.3"></a>
+# 1.0.3 (2019-03-24)
+
+### Fixes
+
+* Check if template is available before passing it to view render engine
+
 <a name="1.0.2"></a>
 # 1.0.1 (2019-03-24)
 
