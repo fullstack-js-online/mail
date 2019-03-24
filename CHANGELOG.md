@@ -1,3 +1,10 @@
+<a name="1.0.2"></a>
+# 1.0.1 (2019-03-24)
+
+### Fixes
+
+* Check if template is available before pushing template to nodemailer
+
 <a name="1.0.1"></a>
 # 1.0.1 (2019-03-24)
 
