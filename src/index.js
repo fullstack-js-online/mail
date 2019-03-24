@@ -570,9 +570,17 @@ class Mail {
   async send() {
     const { html, text, watchHtml } = this.View.render(this.template, this.data)
 
-    this._setHtml(html)
-    this._setText(text)
-    this._setWatchHtml(watchHtml)
+    if (hmtl) {
+      this._setHtml(html)
+    }
+
+    if (text) {
+      this._setText(text)
+    }
+
+    if (watchHtml) {
+      this._setWatchHtml(watchHtml)
+    }
 
     return this._driverInstance.send(this.mailerMessage)
   }

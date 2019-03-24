@@ -52,4 +52,18 @@ describe('The base render engine', () => {
       new BaseRenderEngine(edgeConfig)._getContent('reset-password')
     ).toMatchSnapshot()
   })
+
+  it('can gracefully ignore mail templates that are not found', () => {
+    const config = {
+      views: '__tests__/__mocks__/mails',
+      viewEngine: 'handlebars'
+    }
+
+    const base = new BaseRenderEngine(config)
+    const content = base._getContent('payment-received')
+
+    expect(content.text).toBeNull()
+    expect(content.watchHtml).toBeNull()
+    expect(content.html).toMatchSnapshot()
+  })
 })

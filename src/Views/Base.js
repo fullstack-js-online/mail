@@ -48,27 +48,37 @@ class BaseRenderEngine {
    * @return {any} content
    */
   _getContent(view) {
+    return {
+      html: this._getFileContent(view, 'html'),
+      text: this._getFileContent(view, 'text'),
+      watchHtml: this._getFileContent(view, 'watch-html')
+    }
+  }
+
+    /**
+   * This method gracefully tries to get the content of the template file.
+   * It returns null if file is not found.
+   *
+   * @param {String} view
+   * @param {String} type
+   * 
+   * @private
+   * 
+   * @return {String|Null}
+   * 
+   */
+  _getFileContent(view, type) {
     const engine = this.Config.viewEngine
 
-    return {
-      html: Fs.readFileSync(
+    try {
+      return Fs.readFileSync(
         this._getViewsPath(
-          `${view}/${view}.html.${this.enginesExtensionsMap[engine]}`
-        ),
-        'utf8'
-      ),
-      text: Fs.readFileSync(
-        this._getViewsPath(
-          `${view}/${view}.text.${this.enginesExtensionsMap[engine]}`
-        ),
-        'utf8'
-      ),
-      watchHtml: Fs.readFileSync(
-        this._getViewsPath(
-          `${view}/${view}.watch-html.${this.enginesExtensionsMap[engine]}`
+          `${view}/${view}.${type}.${this.enginesExtensionsMap[engine]}`
         ),
         'utf8'
       )
+    } catch (e) {
+      return null
     }
   }
 
@@ -77,7 +87,11 @@ class BaseRenderEngine {
    * It uses the default which is a folder called mails.
    *
    * @param {String} view
-   * @return
+   * 
+   * @private
+   * 
+   * @return {String}
+   * 
    */
   _getViewsPath(view) {
     const currentWorkingDirectory = process.cwd()

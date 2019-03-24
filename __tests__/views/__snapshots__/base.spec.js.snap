@@ -41,3 +41,8 @@ RESET YOUR PASSWORD
 ",
 }
 `;
+
+exports[`The base render engine can gracefully ignore mail templates that are not found 1`] = `
+"Hello. Your payment of <strong>\${{ price }}</strong> has been received.
+"
+`;
