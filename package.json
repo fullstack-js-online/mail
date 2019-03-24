@@ -8,7 +8,7 @@
     "prettier": "prettier --write './**/*.js'"
   },
   "bin": {
-    "friendlymail": "/bin/index.js"
+    "friendlymail": "bin/friendlymail"
   },
   "keywords": [
     "nodemailer",
