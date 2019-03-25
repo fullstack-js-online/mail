@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 module.exports = {
   /**
    * Get extendtions map for all engines
@@ -26,7 +28,11 @@ module.exports = {
    * @return {String}
    *
    */
-  getConfig: () =>
-    require(`${process.cwd()}/${process.env.MAIL_CONFIG_FILE_PATH ||
-      'mail.config.js'}`)
+  getConfig: () => {
+    try {
+      return require(`${process.cwd()}/mail.config.js`)
+    } catch (e) {
+      return null
+    }
+  }
 }

@@ -1,3 +1,10 @@
+<a name="1.0.7"></a>
+# 1.0.7 (2019-03-25)
+
+### Features
+
+* Add cli init command to generate an example mail configuration.
+
 <a name="1.0.6"></a>
 # 1.0.6 (2019-03-24)
 

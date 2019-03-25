@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const Fs = require('fs')
+const Path = require('path')
 const chalk = require('chalk')
 const slugify = require('slugify')
 const program = require('commander')
@@ -22,6 +23,12 @@ program
   .action(name => {
     const cwd = process.cwd()
     const { views, viewEngine } = config
+
+    if(!config) {
+      return console.log(`
+      ❌  ${chalk.red('Mail configuration not found. Run init command to create one.')}
+      `)
+    }
 
     if (!views || !viewEngine) {
       throw GE.RuntimeException.missingConfig(
@@ -54,6 +61,28 @@ program
     console.log(`
     ✅   ${chalk.green('Mail generated successfully.')}
     `)
+  })
+
+program
+  .command('init')
+  .alias('i')
+  .description('Rapidly generate configuration file for friendly mail.')
+  .action(() => {
+    const cwd = process.cwd()
+
+    if (config) {
+      return console.log(`
+      ❌   ${chalk.red('Mail configuration already exists.')}
+      `)
+    }
+
+    if (! config) {
+      Fs.writeFileSync(`${cwd}/mail.config.js`, Fs.readFileSync(Path.resolve(__dirname, '../defaultConfig.stub.js')))
+      
+      console.log(`
+      ✅   ${chalk.green('Mail config generated successfully.')}
+      `)
+    }
   })
 
 program.parse(process.argv)
